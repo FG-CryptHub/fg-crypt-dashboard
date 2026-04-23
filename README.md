@@ -7,12 +7,12 @@ Public frontend for the **FG-CryptHub** crypto tracking suite. This is where por
 | Repo | Visibility | Role |
 | --- | --- | --- |
 | [fg-crypt-dashboard](https://github.com/FG-CryptHub/fg-crypt-dashboard) | **public** | Frontend UI — this repo |
-| [fg-crypt-api](https://github.com/FG-CryptHub/fg-crypt-api) | private | Backend API — portfolio calc, auth, serves dashboard |
-| [fg-crypt-ingest](https://github.com/FG-CryptHub/fg-crypt-ingest) | private | Data-loading jobs — pulls from exchanges/chains, writes to the API's store |
+| [fg-crypt-core](https://github.com/FG-CryptHub/fg-crypt-core) | private | Backend core — portfolio math, data store, HTTP API |
+| [fg-crypt-ingest](https://github.com/FG-CryptHub/fg-crypt-ingest) | private | Data-loading jobs — pulls from exchanges/chains, writes to core's store |
 
 ```
 ┌──────────────┐       HTTP        ┌─────────────┐       reads        ┌──────────────┐
-│  dashboard   │ ────────────────▶ │     api     │ ◀───────────────── │    ingest    │
+│  dashboard   │ ────────────────▶ │    core     │ ◀───────────────── │    ingest    │
 │   (public)   │    (JSON/REST)    │  (private)  │   (shared store)   │  (private)   │
 └──────────────┘                   └─────────────┘                    └──────────────┘
 ```
@@ -20,12 +20,12 @@ Public frontend for the **FG-CryptHub** crypto tracking suite. This is where por
 ## What lives here
 
 - UI code only. No secrets, no wallet addresses, no API keys.
-- Read-only view of data served by `fg-crypt-api`.
+- Read-only view of data served by `fg-crypt-core` over HTTP.
 - Safe to be public — anything sensitive belongs in the private repos.
 
 ## What does **not** live here
 
-- Transaction history, cost-basis logic, or wallet addresses → `fg-crypt-api`
+- Transaction history, cost-basis logic, or wallet addresses → `fg-crypt-core`
 - Exchange/chain credentials or sync jobs → `fg-crypt-ingest`
 
 ## Getting started
