@@ -7,8 +7,8 @@ Public frontend for the **FG-CryptHub** crypto tracking suite. This is where por
 | Repo | Visibility | Role |
 | --- | --- | --- |
 | [fg-crypt-dashboard](https://github.com/FG-CryptHub/fg-crypt-dashboard) | **public** | Frontend UI — this repo |
-| fg-crypt-api | private | Backend API — portfolio calc, auth, serves dashboard |
-| fg-crypt-ingest | private | Data-loading jobs — pulls from exchanges/chains, writes to the API's store |
+| [fg-crypt-api](https://github.com/FG-CryptHub/fg-crypt-api) | private | Backend API — portfolio calc, auth, serves dashboard |
+| [fg-crypt-ingest](https://github.com/FG-CryptHub/fg-crypt-ingest) | private | Data-loading jobs — pulls from exchanges/chains, writes to the API's store |
 
 ```
 ┌──────────────┐       HTTP        ┌─────────────┐       reads        ┌──────────────┐
