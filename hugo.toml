@@ -9,10 +9,10 @@ enableRobotsTXT = true
   [params.firebase]
     # Firebase web config values are identifiers, not secrets — safe to commit.
     # Fill in from Firebase Console -> Project settings -> Your apps -> Web app.
-    apiKey = "REPLACE_ME"
-    authDomain = "your-project.firebaseapp.com"
-    projectId = "your-project"
-    appId = "REPLACE_ME"
+    apiKey = "AIzaSyBwfapP0ojcUCkbkoEl8dmQEQG9iyE6Y9U"
+    authDomain = "future-gadget-labs-b7e6b.firebaseapp.com"
+    projectId = "future-gadget-labs-b7e6b"
+    appId = "1:9095230039:web:8ccf906ae037849aed6912"
 
   [params.auth]
     # Only these Google accounts can access the dashboard UI.
