@@ -1,0 +1,60 @@
+{{ define "main" }}
+<article class="content">
+  <header class="content-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </header>
+
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+  {{ if eq .Section "performance" }}
+  <section class="panel">
+    <div class="panel-header"><h2>XIRR</h2></div>
+    <div class="panel-body">
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">YTD</div><div class="kpi-value" id="xirr-ytd">—</div></div>
+        <div class="kpi"><div class="kpi-label">1Y</div><div class="kpi-value" id="xirr-1y">—</div></div>
+        <div class="kpi"><div class="kpi-label">3Y</div><div class="kpi-value" id="xirr-3y">—</div></div>
+        <div class="kpi"><div class="kpi-label">All-time</div><div class="kpi-value" id="xirr-all">—</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-header"><h2>Portfolio value over time</h2></div>
+    <div class="panel-body">
+      <div class="chart-placeholder" id="value-chart">Waiting for API…</div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-header"><h2>Cash flow</h2></div>
+    <div class="panel-body">
+      <table class="data-table" id="cashflow-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th class="num">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="3" class="loading">Waiting for API…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  {{ end }}
+
+  {{ if and (not (eq .Section "performance")) .Pages }}
+  <section class="card-list">
+    {{ range .Pages.ByWeight }}
+    <a class="card" href="{{ .RelPermalink }}">
+      <h3>{{ .Title }}</h3>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </a>
+    {{ end }}
+  </section>
+  {{ end }}
+</article>
+{{ end }}

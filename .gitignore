@@ -1,3 +1,8 @@
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
 # dependencies
 node_modules/
 .pnp

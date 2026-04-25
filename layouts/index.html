@@ -1,0 +1,62 @@
+{{ define "main" }}
+<section class="dashboard">
+  <header class="dashboard-header">
+    <div>
+      <h1 class="dashboard-title">Status</h1>
+      <p class="dashboard-sub" id="last-updated">—</p>
+    </div>
+    <button id="refresh" type="button" class="btn btn-ghost">Refresh</button>
+  </header>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">Total value</div>
+      <div class="kpi-value" id="kpi-total">—</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">24h change</div>
+      <div class="kpi-value" id="kpi-24h">—</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">All-time P/L</div>
+      <div class="kpi-value" id="kpi-pnl">—</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">XIRR (all-time)</div>
+      <div class="kpi-value" id="kpi-xirr">—</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-header">
+      <h2>Holdings</h2>
+    </div>
+    <div class="panel-body">
+      <table class="data-table" id="holdings-table">
+        <thead>
+          <tr>
+            <th>Asset</th>
+            <th class="num">Amount</th>
+            <th class="num">Value</th>
+            <th class="num">Weight</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="4" class="loading">Waiting for API…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-header">
+      <h2>Wallets</h2>
+    </div>
+    <div class="panel-body">
+      <ul class="wallet-list" id="wallet-list">
+        <li class="loading">Waiting for API…</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{{ end }}

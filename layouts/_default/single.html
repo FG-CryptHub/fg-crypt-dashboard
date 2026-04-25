@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article class="content content-narrow">
+  <header class="content-header">
+    <p class="eyebrow"><a href="{{ (.Site.GetPage .Section).RelPermalink }}">{{ (.Site.GetPage .Section).Title }}</a></p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </header>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

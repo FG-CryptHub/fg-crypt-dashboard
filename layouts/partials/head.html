@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+{{ with .Description | default .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◎</text></svg>">
+<link rel="stylesheet" href="{{ "css/app.css" | relURL }}">
+{{ $fb := .Site.Params.firebase }}
+{{ $cfg := dict
+  "firebase" (dict
+    "apiKey"     (index $fb "apikey")
+    "authDomain" (index $fb "authdomain")
+    "projectId"  (index $fb "projectid")
+    "appId"      (index $fb "appid"))
+  "allowedEmails" .Site.Params.auth.allowedEmails
+  "apiBaseURL"    .Site.Params.api.baseURL
+}}
+<script>
+  window.__CONFIG = {{ $cfg | jsonify | safeJS }};
+</script>

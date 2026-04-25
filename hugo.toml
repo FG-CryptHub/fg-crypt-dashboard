@@ -1,0 +1,50 @@
+baseURL = "https://fg-crypthub.github.io/fg-crypt-dashboard/"
+languageCode = "en-us"
+title = "FG-CryptHub"
+enableRobotsTXT = true
+
+[params]
+  description = "Private crypto portfolio dashboard — FG-CryptHub"
+
+  [params.firebase]
+    # Firebase web config values are identifiers, not secrets — safe to commit.
+    # Fill in from Firebase Console -> Project settings -> Your apps -> Web app.
+    apiKey = "REPLACE_ME"
+    authDomain = "your-project.firebaseapp.com"
+    projectId = "your-project"
+    appId = "REPLACE_ME"
+
+  [params.auth]
+    # Only these Google accounts can access the dashboard UI.
+    # Real enforcement still lives in fg-crypt-core (verifies Firebase ID tokens).
+    allowedEmails = ["nguye208@gmail.com"]
+
+  [params.api]
+    # Base URL for the fg-crypt-core HTTP API (leave empty until deployed).
+    baseURL = ""
+
+[menu]
+  [[menu.main]]
+    name = "Status"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Performance"
+    url = "/performance/"
+    weight = 2
+  [[menu.main]]
+    name = "Setup"
+    url = "/setup/"
+    weight = 3
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  page = ["HTML"]
