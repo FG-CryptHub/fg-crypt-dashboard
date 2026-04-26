@@ -20,8 +20,8 @@ enableRobotsTXT = true
     allowedEmails = ["nguye208@gmail.com"]
 
   [params.api]
-    # Base URL for the fg-crypt-core HTTP API (leave empty until deployed).
-    baseURL = ""
+    # Base URL for the fg-crypt-core HTTP API (Cloud Run service).
+    baseURL = "https://fg-crypt-core-957536135168.us-central1.run.app"
 
 [menu]
   [[menu.main]]
